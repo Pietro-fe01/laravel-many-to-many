@@ -88,8 +88,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all(); // Get all types
+        $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -120,6 +121,14 @@ class ProjectController extends Controller
         }
 
         $project->update($data);
+
+        if( isset($data['technologies']) ) {
+            // Save records into pivot table if $data['technologies] is isset
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            // Else every record to its project is cancelled
+            $project->technologies()->sync([]);
+        }
 
         return redirect()->route('admin.projects.show', $project);
     }
