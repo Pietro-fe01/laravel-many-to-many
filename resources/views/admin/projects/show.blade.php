@@ -38,7 +38,9 @@
             <h3 class="m-0 mt-4">Technologies used:</h3>
             <ul>
                 @foreach ($project->technologies as $technology)
-                    <span class="badge text-bg-info m-1 p-2">{{ $technology->name }}</span>
+                    <a href="{{ route('admin.technologies.show', $technology) }}" class="text-decoration-none">
+                        <span class="badge text-bg-info m-1 p-2">{{ $technology->name }}</span>
+                    </a>
                 @endforeach
             </ul>
         </div>
