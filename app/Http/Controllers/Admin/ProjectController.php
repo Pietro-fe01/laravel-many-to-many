@@ -60,6 +60,9 @@ class ProjectController extends Controller
 
         $new_project->save();
 
+        // Save records into pivot table
+        $new_project->technologies()->sync($data['technologies']);
+
         return redirect()->route('admin.projects.show', $new_project);
     }
 
