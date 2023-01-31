@@ -28,11 +28,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($technologies as $techology)
+                @foreach ($technologies as $technology)
                 <tr>
-                    <td>{{ $techology->id }}</td>
-                    <td>{{ $techology->name }}</td>
-                    <td>{{ $techology->slug }}</td>
+                    <td>{{ $technology->id }}</td>
+                    <td>{{ $technology->name }}</td>
+                    <td>{{ $technology->slug }}</td>
                     <td>
                         <div class="dropdown">
                             <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,32 +40,32 @@
                             </a>
                             
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('admin.technologies.show', $techology) }}">Show details</a></li>
-                                <li><a class="dropdown-item" href="{{ route('admin.technologies.edit', $techology) }}">Edit</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.technologies.show', $technology) }}">Show details</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.technologies.edit', $technology) }}">Edit</a></li>
                             </ul>
 
                             <!-- Button trigger modal -->
-                            <button techology="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $techology->id }}">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $technology->id }}">
                                 Delete
                             </button>
                             
                             <!-- Modal -->
-                            <div class="modal fade" id="modal-{{ $techology->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="modal-{{ $technology->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Deleting "{{ $techology->name }}" techology.</h1>
-                                    <button techology="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Deleting "{{ $technology->name }}" technology.</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body text-danger text-decoration-underline">
                                         You will not be able to retrieve it anymore, are you sure?
                                     </div>
                                     <div class="modal-footer">
-                                    <button techology="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <form action="{{ route('admin.technologies.destroy', $techology) }}" method="POST">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <form action="{{ route('admin.technologies.destroy', $technology) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button techology="submit" class="btn btn-danger">DELETE</button>
+                                        <button type="submit" class="btn btn-danger">DELETE</button>
                                     </form>
                                     </div>
                                 </div>
