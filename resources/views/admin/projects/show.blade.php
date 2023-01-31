@@ -33,6 +33,21 @@
         </div>
     @endif
 
+    @if ( $project->technologies->isNotEmpty() )
+        <div>
+            <h3 class="m-0 mt-4">Technologies used:</h3>
+            <ul>
+                @foreach ($project->technologies as $technology)
+                    <span class="badge text-bg-info m-1 p-2">{{ $technology->name }}</span>
+                @endforeach
+            </ul>
+        </div>
+    @else 
+        <div>
+            <h3 class="m-0 mt-4">No technologies indicated.</h3>
+        </div>
+    @endif
+
     {{-- Nav links --}}
     <div class="mt-5">
         <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Projects List</a>

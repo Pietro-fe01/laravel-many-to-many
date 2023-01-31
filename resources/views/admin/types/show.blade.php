@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="mb-3">Projects with "<span class="text-decoration-underline">{{ $type->name }}</span>" type:</h1> 
 
-    @if ( count($type->projects) > 0 )
+    @if ( $type->projects->isNotEmpty() )
         <ul>
             @foreach ($type->projects as $project)
                 <li>
