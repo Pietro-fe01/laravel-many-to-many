@@ -6,6 +6,7 @@ use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 use function GuzzleHttp\Promise\all;
 
@@ -30,7 +31,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technologies.create');
     }
 
     /**
@@ -43,7 +44,12 @@ class TechnologyController extends Controller
     {
         $data = $request->validated();
 
-        return view('admin.technologies.show');
+        $new_technology = new Technology();
+        $new_technology->fill($data);
+        $new_technology->slug = Str::of($data['name'])->slug('-');
+        $new_technology->save();
+
+        return redirect()->route('admin.technologies.show', $new_technology);
     }
 
     /**
