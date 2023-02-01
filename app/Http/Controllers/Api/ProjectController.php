@@ -10,7 +10,6 @@ class ProjectController extends Controller
 {
     public function index() { 
         // Return all projects and relative dipendences
-        
         return Project::with('type', 'technologies')->get();
     }
 }
