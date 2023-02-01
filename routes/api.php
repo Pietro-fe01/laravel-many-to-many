@@ -19,5 +19,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Get all projects API 
+// Get all projects Api/projects
 Route::get('projects', [ProjectController::class, 'index']);
+
+// Get a signle project/show Api/project/{param}
+Route::get('project/{id}', [ProjectController::class, 'show']);

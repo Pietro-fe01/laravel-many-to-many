@@ -12,4 +12,8 @@ class ProjectController extends Controller
         // Return all projects and relative dipendences
         return Project::with('type', 'technologies')->get();
     }
+
+    public function show($id) { 
+        return Project::with('type', 'technologies')->find($id);
+    }
 }
