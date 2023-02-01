@@ -15,7 +15,7 @@ class Project extends Model
     protected $appends = ['image_url'];
 
     protected function getImageUrlAttribute() {
-        return $this->cover_image ? asset("storage/$this->cover_image") : null;
+        return $this->cover_image ? asset("storage/$this->cover_image") : 'https://via.placeholder.com/250x150?text=No+Image+selected';
     }
 
     public function type() {
