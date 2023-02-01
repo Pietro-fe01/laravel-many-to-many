@@ -11,6 +11,13 @@ class Project extends Model
 
     protected $guarded = ['slug', 'cover_image'];
 
+    // To get the full URL of the uploaded images
+    protected $appends = ['image_url'];
+
+    protected function getImageUrlAttribute() {
+        return $this->cover_image ? asset("storage/$this->cover_image") : null;
+    }
+
     public function type() {
         return $this->belongsTo(Type::class);
     }
