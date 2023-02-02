@@ -52,31 +52,21 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white 
-                                    {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.projects.create' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.projects.show' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.projects.edit' ? 'bg-secondary' : '' }}
-                                    "
+                                    {{ str_contains(Route::currentRouteName(), 'admin.projects') ? 'bg-secondary' : '' }}"
                                     href="{{route('admin.projects.index')}}">
                                         <i class="fa-solid fa-diagram-project fa-lg fa-fw"></i> Projects
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white 
-                                    {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.types.show' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.types.edit' ? 'bg-secondary' : '' }}"
+                                    {{ str_contains(Route::currentRouteName(), 'admin.types') ? 'bg-secondary' : '' }}"
                                     href="{{route('admin.types.index')}}">
                                         <i class="fa-brands fa-magento fa-lg fa-fw"></i> Types
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white 
-                                    {{ Route::currentRouteName() == 'admin.technologies.index' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.technologies.create' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.technologies.show' ? 'bg-secondary' : '' }}
-                                    {{ Route::currentRouteName() == 'admin.technologies.edit' ? 'bg-secondary' : '' }}"
+                                    {{ str_contains(Route::currentRouteName(), 'admin.technologies') ? 'bg-secondary' : '' }}"
                                     href="{{route('admin.technologies.index')}}">
                                     <i class="fa-solid fa-microchip fa-lg fa-fw"></i> Technologies
                                     </a>
