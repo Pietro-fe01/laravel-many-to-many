@@ -23,4 +23,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('projects', [ProjectController::class, 'index']);
 
 // Get a signle project/show Api/project/{param}
-Route::get('project/{id}', [ProjectController::class, 'show']);
+Route::get('project/{slug}', [ProjectController::class, 'show']);
